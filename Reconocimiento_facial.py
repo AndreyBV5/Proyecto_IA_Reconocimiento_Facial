@@ -10,8 +10,8 @@ model = "Model/res10_300x300_ssd_iter_140000.caffemodel"
 net = cv2.dnn.readNetFromCaffe(prototxt, model)
 
 #Leer la imagen y procesarla
-image = cv2.imread("dnn_face_detecter/Foto3.jpeg")
-height, width, _ = image.shape
+image = cv2.imread("dnn_face_detecter/Foto3.jpeg") #Siquieren usar otra imagen solo cambien la ruta ejemplo 
+height, width, _ = image.shape                     #dnn_face_detecter/Foto3.jpeg es donde tengo mis imagenes
 image_resized = cv2.resize(image, (300, 300))
 
 #Crear blob para reprocesarlo
