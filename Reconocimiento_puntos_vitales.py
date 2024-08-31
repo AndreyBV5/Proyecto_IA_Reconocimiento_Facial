@@ -37,9 +37,14 @@ while True:
     # Preparar lista de rectángulos de rostros detectados
     faces = []
     for detection in detections[0][0]:
-        if detection[2] > 0.5:  # Confianza mínima de 50%
+        confidence = detection[2]
+        if confidence > 0.5:  # Confianza mínima de 50%
             box = detection[3:7] * [width, height, width, height]
             x_start, y_start, x_end, y_end = int(box[0]), int(box[1]), int(box[2]), int(box[3])
+            
+            # Mostrar porcentaje de confianza
+            cv2.putText(frame, "Conf: {:.2f}%".format(confidence * 100), (x_start, y_start - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+            
             # Formato (x, y, w, h) para cada cara detectada
             faces.append((x_start, y_start, x_end - x_start, y_end - y_start))
 
