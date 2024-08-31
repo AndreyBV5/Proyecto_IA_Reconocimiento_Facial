@@ -1,6 +1,6 @@
 import cv2
 
-#Arquitectura del modelo en la ruta almacenada
+#Arquitectura del modelo de reconocimiento
 prototxt = "Model/deploy.prototxt.txt"
 
 #Pesos del model en la ruta almacenada
